@@ -1,6 +1,7 @@
 import unittest
 from CCoinBox import CCoinBox
 
+
 class Test_CCoinBox(unittest.TestCase):
 
     def test_pass(self):
@@ -27,3 +28,10 @@ class Test_CCoinBox(unittest.TestCase):
         coinBox.ajouter_25c()
         coinBox.vente()
         self.assertEqual(coinBox.get_vente_permise(), True)
+
+    def test_monnaie_apres_vente(self):
+        coinBox = CCoinBox()
+        coinBox.ajouter_25c()
+        coinBox.ajouter_25c()
+        coinBox.vente()
+        self.assertEqual(coinBox.get_monnaie_courante() == 0, True)
