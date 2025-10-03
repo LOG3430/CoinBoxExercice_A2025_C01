@@ -27,3 +27,10 @@ class Test_CCoinBox(unittest.TestCase):
         coinBox.ajouter_25c()
         coinBox.vente()
         self.assertEqual(coinBox.get_vente_permise(), True)
+
+    def test_permet_pas_2_ventes(self):
+        coinBox = CCoinBox()
+        coinBox.ajouter_25c()
+        coinBox.ajouter_25c()
+        coinBox.vente()
+        self.assertEqual(coinBox.get_vente_permise(), False)
